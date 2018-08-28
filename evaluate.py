@@ -2,7 +2,6 @@ from model.data_utils import CoNLLDataset
 from model.ner_model import NERModel
 from model.config import Config
 
-
 def align_data(data):
     """Given dict with lists, creates aligned strings
 
@@ -54,6 +53,7 @@ input> I love Paris""")
             # for python 3
             sentence = input("input> ")
 
+ 
         words_raw = sentence.strip().split(" ")
 
         if words_raw == ["exit"]:

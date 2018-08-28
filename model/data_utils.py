@@ -5,6 +5,7 @@ import os
 # shared global variables to be imported from model also
 UNK = "$UNK$"
 NUM = "$NUM$"
+# below is modified by Emrys
 NONE = "O"
 
 
@@ -59,7 +60,8 @@ class CoNLLDataset(object):
 
     def __iter__(self):
         niter = 0
-        with open(self.filename) as f:
+        # below Emrys added 'utf-8'
+        with open(self.filename,encoding='utf-8') as f:
             words, tags = [], []
             for line in f:
                 line = line.strip()
@@ -141,7 +143,7 @@ def get_glove_vocab(filename):
     """
     print("Building vocab...")
     vocab = set()
-    with open(filename) as f:
+    with open(filename, 'r+', encoding="utf-8") as f:   # modified by Emrys
         for line in f:
             word = line.strip().split(' ')[0]
             vocab.add(word)
@@ -163,7 +165,8 @@ def write_vocab(vocab, filename):
 
     """
     print("Writing vocab...")
-    with open(filename, "w") as f:
+    # below Emrys added 'utf-8'
+    with open(filename, "w", encoding='utf-8') as f:
         for i, word in enumerate(vocab):
             if i != len(vocab) - 1:
                 f.write("{}\n".format(word))
@@ -184,7 +187,8 @@ def load_vocab(filename):
     """
     try:
         d = dict()
-        with open(filename) as f:
+        # below Emrys added 'utf-8'
+        with open(filename, encoding='utf-8') as f:
             for idx, word in enumerate(f):
                 word = word.strip()
                 d[word] = idx
@@ -205,7 +209,7 @@ def export_trimmed_glove_vectors(vocab, glove_filename, trimmed_filename, dim):
 
     """
     embeddings = np.zeros([len(vocab), dim])
-    with open(glove_filename) as f:
+    with open(glove_filename, 'r+', encoding="utf-8") as f:    # modified by emrys
         for line in f:
             line = line.strip().split(' ')
             word = line[0]

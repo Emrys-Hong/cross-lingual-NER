@@ -312,6 +312,7 @@ class NERModel(BaseModel):
         """
         accs = []
         correct_preds, total_correct, total_preds = 0., 0., 0.
+        print(test)
         for words, labels in minibatches(test, self.config.batch_size):
             labels_pred, sequence_lengths = self.predict_batch(words)
 
@@ -347,10 +348,10 @@ class NERModel(BaseModel):
             preds: list of tags (string), one for each word in the sentence
 
         """
+        print(words_raw)
         words = [self.config.processing_word(w) for w in words_raw]
         if type(words[0]) == tuple:
             words = zip(*words)
         pred_ids, _ = self.predict_batch([words])
         preds = [self.idx_to_tag[idx] for idx in list(pred_ids[0])]
-
         return preds
