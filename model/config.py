@@ -67,16 +67,19 @@ class Config():
     # glove files
     # filename_glove = "data/glove.6B/glove.6B.{}d.txt".format(dim_word)
     ##### below is added by emrys #####
-    filename_glove = "/fs-object-detection/sequence_tagging_folder/sequence_tagging_thailand/data/glove.6B/glove.6B.300d.txt"
+    filename_glove = "/fs-object-detection/sequence_tagging_folder/sequence_tagging_english/data/wiki.multi.es.vec"
     ##### end #####
     # trimmed embeddings (created from glove_filename with build_data.py)
     filename_trimmed = "data/glove.6B.{}d.trimmed.npz".format(dim_word)
     use_pretrained = True
 
     # dataset
-    filename_dev = "data/coNLL/eng/eng.testa.iob"
-    filename_test = "data/coNLL/eng/eng.testb.iob"
-    filename_train = "data/coNLL/eng/eng.train.iob"
+    filename_dev = "data/esp.testa"
+    filename_test = "data/esp.testb"
+    filename_train = "data/esp.train"
+#    filename_dev = 'data/coNLL/eng/eng.testa.iob'
+#    filename_test = 'data/coNLL/eng/eng.testb.iob'
+#    filename_train = 'data/coNLL/eng/eng.train.iob'
 
 # below is commented by Emrys
     # filename_dev = filename_test = filename_train = "data/training_dataset_direct.txt" # test
