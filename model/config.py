@@ -67,7 +67,7 @@ class Config():
     # glove files
     # filename_glove = "data/glove.6B/glove.6B.{}d.txt".format(dim_word)
     ##### below is added by emrys #####
-    filename_glove = "/fs-object-detection/sequence_tagging_folder/sequence_tagging_english/data/wiki.multi.en.vec"
+    filename_glove = "data/wiki.multi.en.vec"
     ##### end #####
     # trimmed embeddings (created from glove_filename with build_data.py)
     filename_trimmed = "data/glove.6B.{}d.trimmed.npz".format(dim_word)
